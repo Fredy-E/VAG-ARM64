@@ -37,6 +37,11 @@ class PublicationChecks(unittest.TestCase):
         self.assertIn('.setPositiveButton("Cable is off vehicle") { _, _ -> initProbe() }', text)
         self.assertEqual(2, text.count('initProbe()'))
 
+    def test_android_sdk_setup_avoids_obsolete_tools(self):
+        text = (check_project.ROOT / '.github/workflows/verify.yml').read_text(encoding='utf-8')
+        self.assertIn('- uses: android-actions/setup-android@v3\n        with:\n          packages: platform-tools', text)
+        self.assertIn("sdkmanager 'platforms;android-34' 'build-tools;34.0.0'", text)
+
     def test_identity_ui_does_not_claim_authenticity(self):
         text = (check_project.ROOT / 'android/VagDiag/app/src/main/java/com/vagdiag/MainActivity.kt').read_text(encoding='utf-8')
         self.assertIn('Ross-Tech identity observed (unverified)', text)
