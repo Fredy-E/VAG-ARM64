@@ -1,0 +1,13 @@
+VAG ARM64
+Copyright 2026 Fredy-E
+
+The original VagDiag source and project documentation are licensed under the
+Apache License, Version 2.0. See LICENSE for the full terms.
+
+The Android package includes Kotlin runtime components and JetBrains
+annotations under their own Apache-2.0 terms. See THIRD-PARTY-NOTICES.md.
+
+Related USBPcap and VCDS documentation repositories retain their own licenses
+and are not bundled. No proprietary Ross-Tech software, loader or firmware is
+included. Product names and observed identification text are descriptive;
+no endorsement or authenticity guarantee is implied.

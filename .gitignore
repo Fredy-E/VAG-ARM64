@@ -1,0 +1,23 @@
+# Local toolchains, private configuration and signing material
+**/local.properties
+.env
+.env.*
+*.jks
+*.keystore
+*.p12
+*.pfx
+# Build products and caches (APK belongs in Releases, not git)
+**/.gradle/
+**/build/
+**/__pycache__/
+/artifacts/
+/releases/
+*.apk
+*.aab
+# Private automotive evidence
+*.pcap
+*.pcapng
+*.log
+WORKSPACE.json
+.idea/
+.vscode/
