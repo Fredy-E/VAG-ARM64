@@ -52,4 +52,9 @@ records and zero truncation.
   frame — not a counter/timestamp), with two surviving clues: one stable
   message-class byte position in requests, and above-random structure in one
   reply region, which is where crib analysis against known scan-file ASCII starts.
+- A cross-session frame census draws the control/data boundary exactly: all short
+  frames (host lengths 4–9, cable lengths 4–7) plus one 20-byte identity frame
+  are byte-identical across sessions (plaintext control plane, including a
+  type-plus-ASCII-name identity frame repeated once per port-open); all long
+  transaction payloads are session-unique (encoded data plane).
 - No raw captures, scan logs, or identifiers are distributed with this repository.
