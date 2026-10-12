@@ -48,4 +48,8 @@ records and zero truncation.
   identification blocks differ run-to-run, while short acks stay stable. The
   vehicle layer therefore uses session-dependent encoding, which also means fixed
   USB replays across sessions will not work — live sessions are required.
+- Positional analysis shows full-payload encoding (17/20 bytes differ per paired
+  frame — not a counter/timestamp), with two surviving clues: one stable
+  message-class byte position in requests, and above-random structure in one
+  reply region, which is where crib analysis against known scan-file ASCII starts.
 - No raw captures, scan logs, or identifiers are distributed with this repository.
