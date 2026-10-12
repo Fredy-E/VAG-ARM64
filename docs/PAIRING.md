@@ -66,4 +66,7 @@ records and zero truncation.
   vendor API exactly): framing and session encoding live in the packed
   application binary, which imports the transport through a single entry point.
   Static analysis must start from an unpacked image, not the on-disk file.
+- Unpacked-image analysis confirms variable-block Rijndael session encoding
+  (round count selected per message size class) behind a virtual-dispatched
+  API; key derivation is still open.
 - No raw captures, scan logs, or identifiers are distributed with this repository.
