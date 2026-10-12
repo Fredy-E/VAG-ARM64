@@ -62,4 +62,8 @@ records and zero truncation.
   naive cribs are confounded by structured cable headers. Next: crib open K-line
   command bytes against transaction payloads, or use the cable's documented
   passthrough mode for K-line modules.
+- The bundled USB transport library is the FTDI vendor build (exports mirror the
+  vendor API exactly): framing and session encoding live in the packed
+  application binary, which imports the transport through a single entry point.
+  Static analysis must start from an unpacked image, not the on-disk file.
 - No raw captures, scan logs, or identifiers are distributed with this repository.
