@@ -57,4 +57,9 @@ records and zero truncation.
   are byte-identical across sessions (plaintext control plane, including a
   type-plus-ASCII-name identity frame repeated once per port-open); all long
   transaction payloads are session-unique (encoded data plane).
+- Follow-up crib battery (single-byte key sweep, known-byte drag, wrapper-library
+  triage): trivial ciphers ruled out, no standard crypto APIs in the wrapper, and
+  naive cribs are confounded by structured cable headers. Next: crib open K-line
+  command bytes against transaction payloads, or use the cable's documented
+  passthrough mode for K-line modules.
 - No raw captures, scan logs, or identifiers are distributed with this repository.
