@@ -43,4 +43,9 @@ records and zero truncation.
 - Exact address-to-segment map, except the cleared controller (strong inference).
 - Heavyweight/lightweight segment attributions are hypotheses.
 - Per-transaction request/response semantics inside the 20/44-byte payloads.
+- A byte-equality diff of the cleared controller's segment across the two sessions
+  does NOT isolate fault frames: request sets are fully disjoint and even the
+  identification blocks differ run-to-run, while short acks stay stable. The
+  vehicle layer therefore uses session-dependent encoding, which also means fixed
+  USB replays across sessions will not work — live sessions are required.
 - No raw captures, scan logs, or identifiers are distributed with this repository.
