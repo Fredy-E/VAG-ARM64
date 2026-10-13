@@ -14,6 +14,11 @@ This project connects three distinct components: VCDS compatibility documentatio
 
 ## Development download
 
+**Current UI/source preview: `0.2.0-preview.1`** (versionCode 3).
+The refreshed bench-only interface has a locally built development APK; see
+[UI preview package, checks and limitations](docs/UI-PREVIEW.md).
+The download below remains the separate prior development release.
+
 [**VagDiag v0.1.1 development release — APK, source and checksums**](https://github.com/Fredy-E/VAG-ARM64/releases/tag/v0.1.1)
 
 Experimental, development-signed and off-vehicle bench-only. Read the boundaries and limitations below before installing or probing a cable.
