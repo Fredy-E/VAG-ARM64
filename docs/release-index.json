@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-31",
+  "document": "RELEASE_CODENAMES.md",
+  "current_local_version": "0.1.4-usb-fix-dev",
+  "current_local_version_code": 5,
+  "current_local_family": "0.1",
+  "current_local_codename": "Ignition",
+  "current_local_published": false,
+  "roadmap": [
+    {
+      "family": "0.1",
+      "codename": "Ignition"
+    },
+    {
+      "family": "0.2",
+      "codename": "Spark"
+    },
+    {
+      "family": "0.3",
+      "codename": "Piston"
+    },
+    {
+      "family": "0.4",
+      "codename": "Crankshaft"
+    },
+    {
+      "family": "0.5",
+      "codename": "Lambda"
+    },
+    {
+      "family": "0.6",
+      "codename": "K-Line"
+    },
+    {
+      "family": "0.7",
+      "codename": "Injector"
+    },
+    {
+      "family": "0.8",
+      "codename": "CANbus"
+    },
+    {
+      "family": "0.9",
+      "codename": "Synchro"
+    },
+    {
+      "family": "1.0",
+      "codename": "Torque"
+    },
+    {
+      "family": "1.1",
+      "codename": "Camshaft"
+    },
+    {
+      "family": "1.2",
+      "codename": "Knock"
+    },
+    {
+      "family": "1.3",
+      "codename": "FreezeFrame"
+    },
+    {
+      "family": "1.4",
+      "codename": "FuelTrim"
+    },
+    {
+      "family": "2.0",
+      "codename": "Turbo"
+    },
+    {
+      "family": "2.1",
+      "codename": "Spool"
+    },
+    {
+      "family": "2.2",
+      "codename": "Wastegate"
+    },
+    {
+      "family": "2.3",
+      "codename": "DualClutch"
+    },
+    {
+      "family": "2.4",
+      "codename": "LaunchControl"
+    },
+    {
+      "family": "3.0",
+      "codename": "Redline"
+    },
+    {
+      "family": "3.1",
+      "codename": "Gateway"
+    },
+    {
+      "family": "3.2",
+      "codename": "UDS"
+    },
+    {
+      "family": "3.3",
+      "codename": "CAN-FD"
+    },
+    {
+      "family": "4.0",
+      "codename": "Overdrive"
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact": "VagDiag-bench.apk",
+      "version_name": "0.1.0",
+      "version_code": 1,
+      "package": "com.vagdiag",
+      "family": "0.1",
+      "codename": "Ignition",
+      "sha256": "6e5f3a4178991529af7cd456b59008640a779a4eead1bed6725b225e7463bd3a",
+      "status": "historical_local_bench",
+      "published": false,
+      "physical_android_vehicle_qualified": false
+    },
+    {
+      "artifact": "VagDiag-kw1281.apk",
+      "version_name": "0.1.0",
+      "version_code": 1,
+      "package": "com.vagdiag",
+      "family": "0.1",
+      "codename": "Ignition",
+      "sha256": "a4d53e93aba54a9e16f7b1c606ef59aeb79edb4771e143b636b2cea8e6393db6",
+      "status": "superseded_local_experiment",
+      "published": false,
+      "physical_android_vehicle_qualified": false
+    },
+    {
+      "artifact": "VagDiag-0.1.1-debug.apk",
+      "version_name": "0.1.1",
+      "version_code": 2,
+      "package": "com.vagdiag",
+      "family": "0.1",
+      "codename": "Ignition",
+      "sha256": "59f25092a8b226045de73d3bbf0ecc2d722e1681bff7e7e77d1cf8a897cb7927",
+      "status": "published_prerelease",
+      "published": true,
+      "physical_android_vehicle_qualified": false,
+      "tag": "v0.1.1",
+      "release_url": "https://github.com/Fredy-E/VAG-ARM64/releases/tag/v0.1.1",
+      "published_at_utc": "2026-10-09T18:13:16Z"
+    },
+    {
+      "artifact": "VagDiag-0.2.0-preview.1-debug.apk",
+      "version_name": "0.2.0-preview.1",
+      "version_code": 3,
+      "package": "com.vagdiag",
+      "family": "0.2",
+      "codename": "Spark",
+      "sha256": "96befaede74fbd8001a11df788609126f0569a75b22d7ec181f95054c1d7ad07",
+      "status": "published_ui_preview_prerelease",
+      "published": true,
+      "physical_android_vehicle_qualified": false,
+      "tag": "v0.2.0-preview.1",
+      "release_url": "https://github.com/Fredy-E/VAG-ARM64/releases/tag/v0.2.0-preview.1",
+      "published_at_utc": "2026-10-13T09:08:05Z"
+    },
+    {
+      "artifact": "before.apk",
+      "version_name": "0.1.2-workshop-dev",
+      "version_code": 3,
+      "package": "com.vagdiag",
+      "family": "0.1",
+      "codename": "Ignition",
+      "sha256": "100a10e829f49940a43367e87fb85e607a2fbcfbf943c541bd74c0329594e1dd",
+      "status": "historical_local_snapshot",
+      "published": false,
+      "physical_android_vehicle_qualified": false
+    },
+    {
+      "artifact": "Froodz-VAG-Diag-0.1.3-can-foundation-dev.apk",
+      "version_name": "0.1.3-can-foundation-dev",
+      "version_code": 4,
+      "package": "com.vagdiag",
+      "family": "0.1",
+      "codename": "Ignition",
+      "sha256": "f33de006c5292d26fb9437934b63a0e30b5ed9cabfc9feb48e0ab2470a11c618",
+      "status": "frozen_local_development",
+      "published": false,
+      "physical_android_vehicle_qualified": false
+    },
+    {
+      "artifact": "Froodz-VAG-Diag-0.1.4-usb-fix-dev.apk",
+      "version_name": "0.1.4-usb-fix-dev",
+      "version_code": 5,
+      "package": "com.vagdiag",
+      "family": "0.1",
+      "codename": "Ignition",
+      "sha256": "c1c966b33183612f8aa3e4ec901c64507efc47668a7d38a7bd36b2a0aeeedc4d",
+      "status": "current_frozen_local_development",
+      "published": false,
+      "physical_android_vehicle_qualified": false
+    }
+  ],
+  "policy": "Codename follows exact major.minor family; preserve full manifest labels, historical tags/assets, hashes and separate publication/qualification status. Documentation only; no runtime release or support gate.",
+  "published_source": {
+    "build_file": "android/VagDiag/app/build.gradle",
+    "version_name": "0.2.0-preview.1",
+    "version_code": 3,
+    "family": "0.2",
+    "codename": "Spark",
+    "status": "historical_public_ui_preview_source_unchanged_by_naming_commit"
+  }
+}

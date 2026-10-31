@@ -1,4 +1,4 @@
-# Per-controller transaction pairing
+# USB transaction segment comparison
 
 Private car captures (two sessions: pre- and post-fault-clear, same vehicle, same
 read-only scan flow) were split at the 27 FTDI port-open markers. Within each segment,
@@ -24,13 +24,15 @@ Frames check out at 100% XOR in both directions in both sessions
 (host 1885–1886 frames, cable 3425–3454 frames), with zero foreign-device
 records and zero truncation.
 
-## What the pre/post-clear pair proves
+## What was observed, and what remains inferred
 
-- The scan flow is deterministic: 25 of 27 segments are identical in transaction
-  counts across sessions run on different days in different fault states.
-- Every controller open yields exactly 16 long (44-byte) identification blocks plus
-  a variable number of 20-byte data responses that scale with fault content:
-  the cleared controller shows 35 fewer data responses for 4 cleared faults.
+- In these two captures, 25 of 27 segments have identical transaction counts.
+  Both sessions were recorded on the same day, around a separately performed
+  fault clear. This observation does not prove universal scan determinism.
+- The compared segments contain a repeated count of long 44-byte replies and
+  differing counts of 20-byte replies. A 35-reply reduction correlates with the
+  changed fault state in one segment; it is not a decoded DTC mapping or proof
+  that every long reply is a controller-identification block.
 - Long-block payloads are unique per segment (zero overlap), consistent with
   per-controller identity content.
 - Request-block inner bytes are high-entropy with per-segment-distinct openers:
@@ -38,35 +40,37 @@ records and zero truncation.
   from byte values. The engine attribution below is behavioral (sole-delta
   inference), not a byte decode.
 
-## Open (needs vehicle-layer decode, not more USB)
+## Open: transport/session semantics remain unresolved
 
 - Exact address-to-segment map, except the cleared controller (strong inference).
 - Heavyweight/lightweight segment attributions are hypotheses.
 - Per-transaction request/response semantics inside the 20/44-byte payloads.
 - A byte-equality diff of the cleared controller's segment across the two sessions
   does NOT isolate fault frames: request sets are fully disjoint and even the
-  identification blocks differ run-to-run, while short acks stay stable. The
-  vehicle layer therefore uses session-dependent encoding, which also means fixed
-  USB replays across sessions will not work — live sessions are required.
-- Positional analysis shows full-payload encoding (17/20 bytes differ per paired
-  frame — not a counter/timestamp), with two surviving clues: one stable
+  long blocks differ run-to-run, while short acks stay stable. The
+  differing bytes make fixed USB replay an unsupported diagnostic strategy.
+  Session variability does not identify a particular encoding algorithm, mode,
+  key, counter scheme or packet-to-cipher data flow.
+- Positional analysis found widespread byte differences, with two clues: one stable
   message-class byte position in requests, and above-random structure in one
   reply region, which is where crib analysis against known scan-file ASCII starts.
-- A cross-session frame census draws the control/data boundary exactly: all short
+- A cross-session frame census separates shared short frames from varying long replies: short
   frames (host lengths 4–9, cable lengths 4–7) plus one 20-byte identity frame
-  are byte-identical across sessions (plaintext control plane, including a
+  are byte-identical across sessions (shared short-control/identity fragments, including a
   type-plus-ASCII-name identity frame repeated once per port-open); all long
-  transaction payloads are session-unique (encoded data plane).
+  transaction payloads differ across the compared sessions. Their semantics
+  and precise encoding remain unestablished.
 - Follow-up crib battery (single-byte key sweep, known-byte drag, wrapper-library
-  triage): trivial ciphers ruled out, no standard crypto APIs in the wrapper, and
-  naive cribs are confounded by structured cable headers. Next: crib open K-line
-  command bytes against transaction payloads, or use the cable's documented
-  passthrough mode for K-line modules.
-- The bundled USB transport library is the FTDI vendor build (exports mirror the
-  vendor API exactly): framing and session encoding live in the packed
-  application binary, which imports the transport through a single entry point.
-  Static analysis must start from an unpacked image, not the on-disk file.
-- Unpacked-image analysis confirms variable-block Rijndael session encoding
-  (round count selected per message size class) behind a virtual-dispatched
-  API; key derivation is still open.
+  triage): tested simple transforms did not yield a validated decode, and naive
+  cribs are confounded by structured cable headers. Absence of standard crypto
+  imports does not establish a custom/lightweight cipher. Legacy dumb-mode
+  K-line passthrough is not raw CAN access and does not establish Eos coverage.
+- In the inspected Windows installation, the USB transport library matches the FTDI vendor API (exports mirror the
+  vendor API exactly). That import shape alone does not locate the complete
+  packet/framing/cipher path or establish which layers the cable handles.
+- **Retraction:** the earlier statement that unpacked-image analysis confirmed
+  variable-block Rijndael session encoding was unsupported. Rijndael-related
+  symbols/code were located, but linkage to captured packets, mode, key
+  derivation and strength remain unresolved. Neither round counts nor unrelated
+  crypto code prove packet encryption or a "stronger than AES-128" claim.
 - No raw captures, scan logs, or identifiers are distributed with this repository.

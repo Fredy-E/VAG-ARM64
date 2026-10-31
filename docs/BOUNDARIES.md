@@ -10,7 +10,7 @@ VCDS remains Ross-Tech's proprietary Windows application. The related [VCDS-ARM6
 
 ## Android
 
-VagDiag uses Android's USB-host APIs directly. It does not execute VCDS, load a Windows driver, unlock an interface, or implement ECU diagnostics. The USB target is the observed legacy HEX-USB VID/PID, not a claim of compatibility with every Ross-Tech product or cable.
+Froodz VAG Diag (historically named VagDiag in the preserved public APKs/source paths) uses Android's USB-host APIs directly. It does not execute VCDS, load a Windows driver, unlock an interface, or implement ECU diagnostics. The USB target is the observed legacy HEX-USB VID/PID, not a claim of compatibility with every Ross-Tech product or cable.
 
 **Identify** receives USB data without a bulk probe. A matching token/banner can be copied or spoofed and cannot prove authenticity. USB connection/claiming itself is not a zero-interaction operation.
 

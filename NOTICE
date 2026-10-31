@@ -1,7 +1,7 @@
-VAG ARM64
+Froodz VAG Diag (VAG-ARM64 research hub)
 Copyright 2026 Fredy-E
 
-The original VagDiag source and project documentation are licensed under the
+The original Froodz VAG Diag source (historically named VagDiag) and project documentation are licensed under the
 Apache License, Version 2.0. See LICENSE for the full terms.
 
 The Android package includes Kotlin runtime components and JetBrains

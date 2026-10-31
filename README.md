@@ -1,8 +1,10 @@
-# VAG ARM64
+# Froodz VAG Diag
 
-**Windows-on-ARM automotive interoperability research and an independent Android USB cable prototype.**
+**Independent Android VAG diagnostic-tool research — approved automotive codenames, explicit evidence and honest hardware limits.**
 
-This project connects three distinct components: VCDS compatibility documentation, native ARM64 USB capture tooling, and **VagDiag**, an experimental Android USB-host application. It is not VCDS for Android, a native ARM64 build of VCDS, or a replacement Ross-Tech interface driver.
+**Froodz VAG Diag** is the application name; **VAG-ARM64** remains the repository/research-hub identifier. The earlier name **VagDiag** remains in historical APK filenames, source paths and package identifiers so their identity and checksums stay intact.
+
+This hub connects VCDS compatibility documentation, native ARM64 USB capture tooling and the experimental Android app. It is not VCDS for Android, a native ARM64 build of VCDS, or a replacement Ross-Tech interface driver.
 
 ## Components
 
@@ -12,18 +14,24 @@ This project connects three distinct components: VCDS compatibility documentatio
 | Native ARM64 USB capture | [USBPcap-ARM64](https://github.com/Fredy-E/USBPcap-ARM64) | Windows USB capture filter driver and CLI. GPL-2.0 driver / BSD-2-Clause CLI; build-time checks are not production signing or hardware qualification. |
 | Android USB prototype | [android/VagDiag](android/VagDiag/) | Kotlin app using Android USB-host APIs for an observed legacy HEX-USB cable. No Windows driver is loaded on Android. |
 
-## Development download
+## Release names and development downloads
 
-**Current UI/source preview: `0.2.0-preview.1`** (versionCode 3).
-The refreshed bench-only interface has a locally built development APK; see
-[UI preview package, checks and limitations](docs/UI-PREVIEW.md).
-The download below remains the separate prior development release.
+| Exact version | Codename | Status / download |
+|---|---|---|
+| `0.1.1` | **Ignition** | [Published experimental alpha bench prerelease](https://github.com/Fredy-E/VAG-ARM64/releases/tag/v0.1.1) |
+| `0.2.0-preview.1` | **Spark** | [Published historical UI-preview prerelease](https://github.com/Fredy-E/VAG-ARM64/releases/tag/v0.2.0-preview.1) — [evidence and limits](docs/UI-PREVIEW.md) |
+| `0.1.3-can-foundation-dev` | **Ignition** | Frozen local development build; no public download in this naming update |
+| `0.1.4-usb-fix-dev` | **Ignition** | Current locally handed-off USB/button-fix build, versionCode 5; not a new GitHub release |
 
-[**VagDiag v0.1.1 development release — APK, source and checksums**](https://github.com/Fredy-E/VAG-ARM64/releases/tag/v0.1.1)
+[**All 24 approved release codenames and verified artifact ledger**](docs/RELEASE_CODENAMES.md) · [release status](docs/RELEASES.md) · [machine-readable index](docs/release-index.json)
+
+Every `0.1.x` patch remains **Ignition**; the existing `0.2.0-preview.1` is **Spark**. The public preview and later local workstream have different version histories: a larger display number does not establish newer engineering work, stability or vehicle support. No APK/tag/asset is renumbered or replaced to align the names.
+
+The source under `android/VagDiag` remains the historical **Spark** preview (`0.2.0-preview.1`, versionCode 3). The local **Ignition** 0.1.4 implementation and its larger test totals are not silently substituted for that public source or those old binaries. This publication updates documentation and existing release display metadata, not APK contents.
 
 Experimental, development-signed and off-vehicle bench-only. Read the boundaries and limitations below before installing or probing a cable.
 
-## VagDiag: what is implemented
+## Published Spark/legacy Ignition prototypes: what is implemented
 
 - Discover the observed USB cable (`VID 0403`, `PID FA24`) and request Android USB permission.
 - Claim the cable interface and perform FTDI USB control/bulk transfers.
@@ -51,6 +59,7 @@ Run repository checks from the project root:
 
 ```sh
 python tools/check_project.py
+python tools/check_release_codenames.py
 python -m unittest discover -s tools/tests -v
 ```
 
@@ -61,11 +70,12 @@ GitHub Actions builds the actual Android app and executes its JVM tests. A succe
 - [Project boundaries and hardware safety](docs/BOUNDARIES.md)
 - [Evidence and known limitations](docs/EVIDENCE.md)
 - [Release guidance](docs/RELEASES.md)
+- [Approved release codenames and actual build alignment](docs/RELEASE_CODENAMES.md)
 - [Third-party notices](THIRD-PARTY-NOTICES.md)
 
 ## Licensing
 
-Original VagDiag source and project documentation: **Apache License 2.0** — see [LICENSE](LICENSE) and [NOTICE](NOTICE). Copyright 2026 Fredy-E.
+Original Froodz VAG Diag source (historically named VagDiag) and project documentation: **Apache License 2.0** — see [LICENSE](LICENSE) and [NOTICE](NOTICE). Copyright 2026 Fredy-E.
 
 The related repositories retain their own existing licenses; none of their drivers or proprietary Ross-Tech files is bundled here. Runtime dependencies retain their own terms in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), with license and attribution texts also embedded in the development APK.
 
